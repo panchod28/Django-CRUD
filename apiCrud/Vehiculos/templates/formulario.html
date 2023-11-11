@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Formulario de Vehículo</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href='{% static "imagenes/Logo.png" %}' type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Custom CSS -->
+  <link type='text/css' href='{% static "css/formulario_style.css" %}' rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div style="display: flex; align-items: center;">
+			<button class="button"><a href="{% url 'lista_vehiculos' %}"><ion-icon style="vertical-align: middle; padding-right: 10px;" name="chevron-back-outline"></ion-icon>Volver</a></button>
+		</div>
+    <div class="cont">
+      <div class="cont-form">
+        <h1 class="titulo">Agregar Vehículo</h1>
+        <form action="{% url 'agregar_vehiculo' %}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="grupo">
+            <label for="identificador">Identificador: </label>
+            <input type="text" name="identificador" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo">
+            <label for="tipo">Tipo: </label>
+            <select name="tipo" class="form-control entrada" field="*{tipo}" required>
+              <option value="Mecánico">Mecánico</option>
+              <option value="Eléctrico">Eléctrico</option>
+              <option value="Automático">Automático</option>
+            </select>
+          </div>
+
+          <div class="grupo">
+            <label for="modelo">Modelo: </label>
+            <input type="text" name="modelo" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo">
+            <label for="marca">Marca: </label>
+            <input type="text" name="marca" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo">
+            <label for="ano">Año: </label>
+            <input type="text" name="ano" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo">
+            <label for="descripcion">Descripción: </label>
+            <input name="descripcion" class="form-control entrada"/>
+          </div>
+
+          <div class="grupo">
+            <label for="valorDia">Valor por día: </label>
+            <input type="text" name="valorDia" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo">
+            <label for="estado">Estado: </label>
+            <select name="estado" class="form-control entrada" required>
+              <option value="Disponible">Disponible</option>
+              <option value="Ocupado">Ocupado</option>
+            </select>
+          </div>
+
+          <div class="grupo">
+            <label for="imagen">Imagen: </label>
+            <input type="file" name="imagen" class="form-control entrada" required>
+          </div>
+
+          <div class="grupo-b">
+            <button class="button" type="submit">Agregar</button>
+          </div>
+        </form>
+      </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="izquierda">
+        <img style="height: 250px; width: 250px; margin-bottom: 5%; margin-left: -5%;" src='{% static "imagenes/Logo.png" %}' alt="Icono de la página">
+        <div class="redes-sociales">
+          <a class="redes"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-twitter"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-google"></ion-icon></a>
+        </div>
+      </div>
+      <div class="medio">
+        <h4>Contáctanos</h4>
+        <p>Correo: rentacar@gmail.com</p>
+        <p>Teléfono: +57 3124557639</p>
+        <h4>Horario de atención</h4>
+        <p>Lunes a viernes 8:00am a 5:30pm</p>
+        <p>Sábados 8:00am a 2:00pm</p>
+      </div>
+      <div class="derecha">
+        <h4>Universo RentaCar</h4>
+        <p>RentaCar en Colombia</p>
+        <p>Grupo RentaCar</p>
+        <p>Código de ética</p>
+        <p>Términos y condiciones</p>
+      </div>
+      <div class="abajo">
+        <p>&copy; 2023 RentaCar. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

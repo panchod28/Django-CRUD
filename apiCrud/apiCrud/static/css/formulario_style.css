@@ -1,0 +1,284 @@
+@charset "ISO-8859-1";
+
+/* Estilos generales */
+.color1 {
+	color: #30B221;
+}
+
+.color2 {
+	color: #ffffff;
+}
+
+.color3 {
+	color: #000000;
+}
+
+.color4 {
+	color: #4dbce9;
+}
+
+.color5 {
+	color: #046ab3;
+}
+
+
+.cont {
+	text-align: center;
+}
+
+.cont-form {
+	background-color: #ffff;
+	margin-top: 50px;
+	margin-left: 500px;
+	margin-right: 500px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+	box-shadow: 10px 0px 15px 5px rgba(0, 0, 0, 0.45);
+}
+
+.titulo {
+	font-size: 39px;
+	padding: 15px;
+	color: #2596be;
+}
+
+form {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.grupo {
+	text-align: left;
+	padding-bottom: 10px;
+}
+
+label {
+	padding-top: 13px;
+	color: #000000;
+	font-style: bold;
+	font-weight: 500;
+	font-size: 18px;
+	text-align: left;
+}
+
+.entrada {
+	-webkit-box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+	-moz-box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+	box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+}
+
+.scroll-box {
+	max-height: 200px;
+	/* Establece la altura máxima para el cuadro de desplazamiento */
+	overflow-y: scroll;
+	/* Agrega una barra de desplazamiento vertical */
+	border: 1px solid #ccc;
+	/* Agrega un borde alrededor del cuadro de desplazamiento (opcional) */
+	-webkit-box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+	-moz-box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+	box-shadow: -1px 3px 7px -2px rgba(0, 0, 0, 0.96);
+}
+
+ul {
+	list-style-type: none;
+}
+
+/* Estilos para los checkboxes personalizados */
+.custom-checkbox-label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	/* Aumentado el margen inferior para separar los checkboxes */
+}
+
+.custom-checkbox-input {
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 20px;
+	/* Ajusta el tamaño del checkbox según tus preferencias */
+	height: 20px;
+	border: 2px solid #ccc;
+	/* Color del borde */
+	border-radius: 4px;
+	/* Ajusta el radio de los bordes según tus preferencias */
+	outline: none;
+	/* Elimina el contorno predeterminado del checkbox */
+	margin-right: 8px;
+	position: relative;
+	vertical-align: middle;
+}
+
+.custom-checkbox-input:checked {
+	border-color: #2596be;
+	/* Color del borde cuando está seleccionado */
+	background-color: #2596be;
+	/* Color de fondo cuando está seleccionado */
+}
+
+.custom-checkbox-input:checked::before {
+	content: '\2713';
+	/* Código de la palomita */
+	color: white;
+	/* Color de la palomita */
+	font-size: 14px;
+	/* Tamaño de la palomita */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.custom-checkbox-input:checked+span {
+	color: #2596be;
+	;
+}
+
+span {
+	font-size: 14px;
+	/* Ajusta el tamaño del texto según tus preferencias */
+	color: #665B5E;
+	font-weight: 600;
+}
+
+.button {
+	display: inline-block;
+	background-color: #2596be;
+	color: #fff;
+	padding: 12px 20px;
+	margin: 30px;
+	text-decoration: none;
+	border: 0px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.button:hover {
+	background-color: #20749a;
+	text-decoration: none;
+	color: #fff;
+	opacity: 80%;
+	border: 0px;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Pie de página al final de la página */
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+	background-image: linear-gradient(to left top, #214358, #234f67, #20749a, #3facd1, #7ccce4);
+}
+
+.footer {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	background-color: black;
+	color: white;
+}
+
+.izquierda {
+	grid-area: 1 / 1 / 3 / 3;
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+.derecha {
+	grid-area: 1 / 3 / 3 / 5;
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+.medio {
+	grid-area: 1 / 5 / 3 / 7;
+	margin-top: 5%;
+	margin-left: 30%;
+}
+
+.abajo {
+	grid-area: 3 / 3 / 4 / 5;
+	margin-top: 0%;
+	margin-left: 10%;
+}
+
+.footer .izquierda .icon {
+	height: 150px;
+	width: 150px;
+	margin-bottom: 5%;
+	margin-left: 5%;
+}
+
+.redes-sociales {
+	display: flex;
+}
+
+.redes {
+	padding: 10px;
+	font-size: 30px;
+}
+
+.imagenes {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	text-align: left;
+	padding: 10px;
+	margin-top: -80px;
+}
+
+.icono {
+	width: 70px;
+	/* Ajusta el tamaño según sea necesario */
+	height: 70px;
+	/* Ajusta el tamaño según sea necesario */
+	margin-right: 10px;
+	/* Ajusta el espacio entre las imágenes */
+}
+
+.icono2 {
+	width: 130px;
+	/* Ajusta el tamaño según sea necesario */
+	height: 30px;
+	/* Ajusta el tamaño según sea necesario */
+}
+
+.button {
+    display: inline-block;
+    background-color: #214358;
+    color: #fff;
+    padding: 12px 20px;
+    margin: 30px;
+    text-decoration: none;
+    border: 0px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+    background-color: #234f67;
+    text-decoration: none;
+    color: #fff;
+    opacity: 80%;
+    border: 0px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 1);
+}
+
+.button a {
+    text-decoration: none;
+    color: white;
+}
+
+.button a:hover {
+    text-decoration: none;
+    color: white;
+}

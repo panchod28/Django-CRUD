@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Lista de Vehiculos</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href='{% static "imagenes/Logo.png" %}' type="image/x-icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- Custom CSS -->
+  <link type='text/css' href='{% static "css/tabla_style.css" %}' rel="stylesheet" />
+</head>
+
+<body>
+  <main>
+    <div>
+      <button class="button"><a style="display: inline-block; width: 100%;"
+          href="{% url 'formulario_vehiculo' %}">Agregar Vehículo<ion-icon
+            style="vertical-align: middle; padding-left: 10px;" name="add-circle-outline"></ion-icon></a></button>
+    </div>
+    <div class="cont">
+      <div class="cont_main">
+        <h1 class="titulo">Vehículos</h1>
+        <div class="cont-tabla">
+          <table class="table tabla">
+            <thead>
+              <tr class="encabezados">
+                <td><strong>Identificador</strong></td>
+                <td><strong>Tipo</strong></td>
+                <td><strong>Modelo</strong></td>
+                <td><strong>Marca</strong></td>
+                <td><strong>Año</strong></td>
+                <td><strong>Descripción</strong></td>
+                <td><strong>Valor Día</strong></td>
+                <td><strong>Estado</strong></td>
+                <td><strong>Imagen</strong></td>
+                <td><strong>Editar</strong></td>
+                <td><strong>Eliminar</strong></td>
+              </tr>
+            </thead>
+            <tbody class="">
+              {% for vehiculo in vehiculos %}
+              <tr>
+                <td>{{ vehiculo.identificador }}</td>
+                <td>{{ vehiculo.tipo }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.ano }}</td>
+                <td>{{ vehiculo.descripcion }}</td>
+                <td>{{ vehiculo.valorDia }}</td>
+                <td>{{ vehiculo.estado }}</td>
+                <td>
+                  {% if vehiculo.imagen != 'N/A' %}
+                      <img style="width: 120px; height: 80px;" src="{{ 'data:image/png;base64,'|add:vehiculo.imagen }}" alt="Imagen del vehículo" />
+                  {% endif %}
+              </td>
+                <td>
+                  <a class="mx-3 text-warning" href="{% url 'editar_vehiculo' vehiculo.VehiculoId %}">
+                    <ion-icon class="icon" name="create-outline"></ion-icon>
+                  </a>
+                </td>
+                <td>
+                  <form action="{% url 'eliminar_vehiculo' vehiculo.VehiculoId %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class=" boton mx-3 text-danger">
+                      <ion-icon class="icon" name="trash-outline"></ion-icon>
+                      </svg>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <div class="izquierda">
+        <img style="height: 250px; width: 250px; margin-bottom: 5%; margin-left: -5%;"
+          src='{% static "imagenes/Logo.png" %}' alt="Icono de la página">
+        <div class="redes-sociales">
+          <a class="redes"><ion-icon name="logo-facebook"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-twitter"></ion-icon></a>
+          <a class="redes"><ion-icon name="logo-google"></ion-icon></a>
+        </div>
+      </div>
+      <div class="medio">
+        <h4>Contáctanos</h4>
+        <p>Correo: rentacar@gmail.com</p>
+        <p>Teléfono: +57 3124557639</p>
+        <h4>Horario de atención</h4>
+        <p>Lunes a viernes 8:00am a 5:30pm</p>
+        <p>Sábados 8:00am a 2:00pm</p>
+      </div>
+      <div class="derecha">
+        <h4>Universo RentaCar</h4>
+        <p>RentaCar en Colombia</p>
+        <p>Grupo RentaCar</p>
+        <p>Código de ética</p>
+        <p>Términos y condiciones</p>
+      </div>
+      <div class="abajo">
+        <p>&copy; 2023 RentaCar. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+  <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js}"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+  <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js}"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
