@@ -71,8 +71,8 @@
           <div class="grupo">
             <label for="estado">Estado: </label>
             <select name="estado" class="form-control entrada" required>
-              <option value="Disponible" {% if vehiculo.tipo == "Disponible" %}selected{% endif %}>Mecánico</option>
-                <option value="Ocupado" {% if vehiculo.tipo == "Ocupado" %}selected{% endif %}>Eléctrico</option>
+              <option value="Disponible" {% if vehiculo.estado == "Disponible" %}selected{% endif %}>Disponible</option>
+                <option value="Ocupado" {% if vehiculo.estado == "Ocupado" %}selected{% endif %}>Ocupado</option>
             </select>
           </div>
 

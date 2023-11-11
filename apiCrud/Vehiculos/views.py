@@ -76,7 +76,7 @@ def agregar_vehiculo(request):
                 with Image.open(imagen) as img:
                     buffered = BytesIO()
                     img.save(buffered, format="JPEG")
-                    imagen_base64 = base64.b64encode(buffered.getvalue())
+                    imagen_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
                     vehiculos_serializer.validated_data['imagen'] = imagen_base64
 
             vehiculo = vehiculos_serializer.save()
