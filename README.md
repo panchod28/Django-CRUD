@@ -1,6 +1,6 @@
 # Django-CRUD
 APIRest CRUD with Django and mongoDB
 
-Este es mi primer proyecto utilizando Python y Django.
-Si van a tomar este proyecto de ejemplo recuerden cambiar la conexión con mongoDB.
-Gracias por leer mi codigo <3
+This is my first using Python and Django.
+If you're using this proyect remeber to change the mongoDB connection.
+Thank you for reading my code <3
